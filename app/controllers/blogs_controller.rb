@@ -11,7 +11,6 @@ class BlogsController < ApplicationController
 
   def create
     @blog = Blog.new(blog_params)
-    #@blog.user_id = current_user.id
     @blog = current_user.blogs.build(blog_params)
       if params[:back]
         render :new
@@ -26,10 +25,6 @@ class BlogsController < ApplicationController
 
   def confirm
     @blog = current_user.blogs.build(blog_params)
-    #@blog = Blog.new(blog_params)
-    # @blog[:user_id] = current_user.id
-
-    # @blog.user = current_user.id
     render :new if @blog.invalid?
   end
 

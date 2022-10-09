@@ -1,9 +1,8 @@
 <h1>投稿一覧</h1>
-<%= link_to "新規作成画面へ", new_blog_path%>
+<%= link_to "新規作成画面へ", new_blog_path, class:"btn" %>
 <table>
   <tr>
     <th>名前</th>
-    <!-- <th>タイトル</th> -->
     <th>内容</th>
     <th></th>
     <th></th>
@@ -11,7 +10,6 @@
   <% @blogs.each do |blog| %>
   <tr>
     <td><%= blog.user.name %></td>
-    <!-- <td><%= blog.title %></td> -->
     <td><%= blog.content %></td>
     <td><%= image_tag(blog.image.url) if blog.image && blog.image.url %></td>
     <td><%= link_to "詳細画面へ", blog_path(blog.id) %></td>
@@ -20,4 +18,3 @@
   </tr>
   <% end %>
 </table>
-<%= link_to "新規作成画面へ", new_blog_path%>
