@@ -26,7 +26,7 @@ class BlogsController < ApplicationController
 
   def confirm
     @blog = current_user.blogs.build(blog_params)
-    # @blog = Blog.new(blog_params)
+    #@blog = Blog.new(blog_params)
     # @blog[:user_id] = current_user.id
 
     # @blog.user = current_user.id
@@ -55,7 +55,7 @@ class BlogsController < ApplicationController
   private
 
   def blog_params
-    params.require(:blog).permit(:title, :content, :user_id)
+    params.require(:blog).permit(:title, :content, :user_id, :image, :image_cache)
   end
 
   def set_blog

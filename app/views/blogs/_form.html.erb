@@ -10,13 +10,22 @@
 </div>
 <% end%>
 
-  <div class="blog_title">
-    <%= f.label :title%>
-    <%= f.text_field :title%>
-  </div>
+  <!-- <div class="blog_title">
+    <%= form.label :title%>
+    <%= form.text_field :title%>
+  </div> -->
   <div class="blog_content">
-    <%= f.label :content%>
-    <%= f.text_field :content%>
+    <%= form.label :content%>
+    <%= form.text_field :content%>
   </div>
-    <%= f.submit "送信"%>
+  <div class="image_field">
+    <%= form.label :image %>
+    <%= image_tag(@blog.image.url) if @blog.image && @blog.image.url %>
+    <%= form.file_field :image %>
+    <%= form.hidden_field :image_cache %>
+  </div>
+    <%= form.submit "送信"%>
+
 <% end %>
+
+<%= link_to "戻る", blogs_path%>
